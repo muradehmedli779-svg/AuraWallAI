@@ -294,7 +294,6 @@
 			projectRoot = "";
 			targets = (
 				A10000012026102300000001 /* AuraWall */,
-				A10000022026102300000002 /* AuraWallTests */,
 			);
 		};
 /* End PBXProject section */

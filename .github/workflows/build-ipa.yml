@@ -30,7 +30,7 @@ jobs:
           set -o pipefail
           xcodebuild clean build \
             -project AuraWall/AuraWall.xcodeproj \
-            -scheme AuraWall \
+            -target AuraWall \
             -configuration Release \
             -sdk iphoneos \
             -destination "generic/platform=iOS" \
@@ -40,13 +40,24 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee build.log
 
-      - name: Print Errors If Failed
+      - name: Upload Build Log Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          retention-days: 7
+
+      - name: Save Error Log on Failure
         if: failure()
         run: |
-          if [ -f build.log ]; then
-            echo "=== XCODEBUILD ERROR LOG ==="
-            grep -E "error:|fatal error:|FAILED" build.log -B 2 -A 3 || tail -n 80 build.log
-          fi
+          echo "=== BUILD ERROR ===" > BUILD_ERROR.txt
+          grep -E "error:|fatal error:|FAILED" build.log -B 2 -A 3 >> BUILD_ERROR.txt || tail -n 80 build.log >> BUILD_ERROR.txt
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add BUILD_ERROR.txt
+          git commit -m "chore: record build error [skip ci]" || true
+          git push origin main || true
 
       - name: Package App into IPA
         run: |
