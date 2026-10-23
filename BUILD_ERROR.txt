@@ -1,0 +1,3 @@
+=== BUILD ERROR ===
+2026-10-23 20:25:19.555 xcodebuild[1086:5712] Writing error result bundle to /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/ResultBundle_2026-23-10_20-25-0019.xcresult
+xcodebuild: error: The flag -scheme, -testProductsPath, or -xctestrun is required when specifying -derivedDataPath.
