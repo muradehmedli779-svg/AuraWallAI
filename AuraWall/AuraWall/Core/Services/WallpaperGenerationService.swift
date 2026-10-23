@@ -171,7 +171,7 @@ public final class WallpaperGenerationService {
             let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
             
             let renderedImage = renderer.image { ctx in
-                let cgCtx = ctx.ctx
+                let cgCtx = ctx.cgContext
                 
                 let colors = style.sampleGradientColors.compactMap { UIColor(hex: $0)?.cgColor }
                 let cfColors = (colors.count >= 2 ? colors : [UIColor.black.cgColor, UIColor.systemIndigo.cgColor]) as CFArray

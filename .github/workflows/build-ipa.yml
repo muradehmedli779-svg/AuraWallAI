@@ -1,9 +1,12 @@
-name: Build and Release iOS IPA
+name: Build and Package iOS IPA
 
 on:
   push:
     branches: [ main, master ]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-ipa:
@@ -22,28 +25,29 @@ jobs:
           xcodebuild -version
           swift --version
 
-      - name: Build Xcode Archive (Unsigned / Ad-Hoc for Sideloading)
+      - name: Build iOS App with Xcode
         run: |
-          xcodebuild archive \
+          xcodebuild clean build \
             -project AuraWall/AuraWall.xcodeproj \
             -scheme AuraWall \
             -configuration Release \
-            -archivePath build/AuraWall.xcarchive \
             -destination "generic/platform=iOS" \
-            CODE_SIGN_IDENTITY="" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGN_IDENTITY="" \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
 
-      - name: Package Payload into IPA
+      - name: Package App into IPA
         run: |
           mkdir -p build/Payload
-          cp -r build/AuraWall.xcarchive/Products/Applications/AuraWall.app build/Payload/
+          cp -r build/DerivedData/Build/Products/Release-iphoneos/AuraWall.app build/Payload/
           cd build
           zip -r AuraWall.ipa Payload
           cd ..
-          ls -la build/AuraWall.ipa
+          ls -lh build/AuraWall.ipa
 
-      - name: Upload IPA as Build Artifact
+      - name: Upload IPA as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: AuraWall-IPA
@@ -52,7 +56,7 @@ jobs:
 
       - name: Create GitHub Release with IPA
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        continue-on-error: true
         with:
           tag_name: v1.0.0-${{ github.run_number }}
           name: AuraWall AI iOS IPA Build #${{ github.run_number }}
