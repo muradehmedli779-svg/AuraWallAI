@@ -9,8 +9,8 @@ public final class StorageManager: ObservableObject {
     private let fileManager = FileManager.default
     private let projectsKey = "aurawall_saved_projects_v1"
     
-    private var documentsDirectory: URL {
-        fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    nonisolated private var documentsDirectory: URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
     private init() {
@@ -60,7 +60,7 @@ public final class StorageManager: ObservableObject {
         }
     }
     
-    public func saveImage(_ image: UIImage, prefix: String = "aura") throws -> String {
+    nonisolated public func saveImage(_ image: UIImage, prefix: String = "aura") throws -> String {
         let filename = "\(prefix)_\(UUID().uuidString).png"
         let fileURL = documentsDirectory.appendingPathComponent(filename)
         
@@ -72,7 +72,7 @@ public final class StorageManager: ObservableObject {
         return filename
     }
     
-    public func loadImage(named filename: String) -> UIImage? {
+    nonisolated public func loadImage(named filename: String) -> UIImage? {
         let fileURL = documentsDirectory.appendingPathComponent(filename)
         return UIImage(contentsOfFile: fileURL.path)
     }

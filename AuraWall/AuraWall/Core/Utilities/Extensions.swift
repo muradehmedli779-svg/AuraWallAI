@@ -78,3 +78,26 @@ extension View {
         modifier(GlassCardModifier(cornerRadius: cornerRadius, strokeColor: strokeColor))
     }
 }
+
+// Conformance to Hashable for CoreGraphics geometry types
+extension CGSize: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(width)
+        hasher.combine(height)
+    }
+}
+
+extension CGPoint: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+    }
+}
+
+extension CGRect: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(origin)
+        hasher.combine(size)
+    }
+}
+
