@@ -30,7 +30,7 @@ jobs:
           set -o pipefail
           xcodebuild clean build \
             -project AuraWall/AuraWall.xcodeproj \
-            -target AuraWall \
+            -scheme AuraWall \
             -configuration Release \
             -sdk iphoneos \
             -destination "generic/platform=iOS" \
