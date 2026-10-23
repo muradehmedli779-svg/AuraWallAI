@@ -27,16 +27,26 @@ jobs:
 
       - name: Build iOS App with Xcode
         run: |
+          set -o pipefail
           xcodebuild clean build \
             -project AuraWall/AuraWall.xcodeproj \
             -scheme AuraWall \
             -configuration Release \
+            -sdk iphoneos \
             -destination "generic/platform=iOS" \
             -derivedDataPath build/DerivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            AD_HOC_CODE_SIGNING_ALLOWED=YES
+            AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee build.log
+
+      - name: Print Errors If Failed
+        if: failure()
+        run: |
+          if [ -f build.log ]; then
+            echo "=== XCODEBUILD ERROR LOG ==="
+            grep -E "error:|fatal error:|FAILED" build.log -B 2 -A 3 || tail -n 80 build.log
+          fi
 
       - name: Package App into IPA
         run: |
