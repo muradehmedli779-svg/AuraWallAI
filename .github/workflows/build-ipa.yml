@@ -17,13 +17,34 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
-      - name: Select Xcode 15/16
-        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+      - name: Select Xcode
+        run: |
+          # List available Xcode versions for debugging
+          ls /Applications/ | grep Xcode || true
+          # Use Xcode 15.4 (matches pbxproj CreatedOnToolsVersion)
+          if [ -d "/Applications/Xcode_15.4.app" ]; then
+            sudo xcode-select -s /Applications/Xcode_15.4.app
+          elif [ -d "/Applications/Xcode_15.3.app" ]; then
+            sudo xcode-select -s /Applications/Xcode_15.3.app
+          elif [ -d "/Applications/Xcode_15.2.app" ]; then
+            sudo xcode-select -s /Applications/Xcode_15.2.app
+          else
+            sudo xcode-select -s /Applications/Xcode.app
+          fi
 
       - name: Verify Environment
         run: |
           xcodebuild -version
           swift --version
+
+      - name: Resolve Project Structure
+        run: |
+          echo "=== Project files ==="
+          find AuraWall/AuraWall -name "*.swift" | sort
+          echo "=== pbxproj check ==="
+          head -10 AuraWall/AuraWall.xcodeproj/project.pbxproj
+          echo "=== Scheme check ==="
+          cat AuraWall/AuraWall.xcodeproj/xcshareddata/xcschemes/AuraWall.xcscheme | head -25
 
       - name: Build iOS App with Xcode
         run: |
@@ -38,7 +59,8 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee build.log
+            AD_HOC_CODE_SIGNING_ALLOWED=YES \
+            COMPILER_INDEX_STORE_ENABLE=NO 2>&1 | tee build.log
 
       - name: Upload Build Log Artifact
         if: always()
@@ -52,7 +74,10 @@ jobs:
         if: failure()
         run: |
           echo "=== BUILD ERROR ===" > BUILD_ERROR.txt
-          grep -E "error:|fatal error:|FAILED" build.log -B 2 -A 3 >> BUILD_ERROR.txt || tail -n 80 build.log >> BUILD_ERROR.txt
+          echo "Xcode version: $(xcodebuild -version | head -1)" >> BUILD_ERROR.txt
+          echo "Date: $(date)" >> BUILD_ERROR.txt
+          echo "---" >> BUILD_ERROR.txt
+          grep -E "error:|fatal error:|FAILED|cannot find|no such module|undeclared" build.log -B 2 -A 5 >> BUILD_ERROR.txt 2>/dev/null || tail -n 120 build.log >> BUILD_ERROR.txt
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add BUILD_ERROR.txt
@@ -61,8 +86,14 @@ jobs:
 
       - name: Package App into IPA
         run: |
+          APP_PATH=$(find build/DerivedData/Build/Products/Release-iphoneos -name "AuraWall.app" -type d | head -1)
+          if [ -z "$APP_PATH" ]; then
+            echo "ERROR: AuraWall.app not found in build output"
+            exit 1
+          fi
+          echo "Found app at: $APP_PATH"
           mkdir -p build/Payload
-          cp -r build/DerivedData/Build/Products/Release-iphoneos/AuraWall.app build/Payload/
+          cp -r "$APP_PATH" build/Payload/
           cd build
           zip -r AuraWall.ipa Payload
           cd ..
@@ -80,13 +111,13 @@ jobs:
         continue-on-error: true
         with:
           tag_name: v1.0.0-${{ github.run_number }}
-          name: AuraWall AI iOS IPA Build #${{ github.run_number }}
+          name: "AuraWall AI iOS IPA Build #${{ github.run_number }}"
           body: |
-            ## 📱 AuraWall AI — Hazır iOS IPA Dosyası
-            
+            ## 🚀 AuraWall AI — Hazır iOS IPA Dosyası
+
             Bu IPA dosyası buluttaki macOS-14 ortamında otomatik olarak derlendi.
-            
-            ### 🚀 Telefona Nasıl Yüklenir?
+
+            ### 📱 Telefona Nasıl Yüklenir?
             1. Aşağıdaki **AuraWall.ipa** dosyasını indirin.
             2. Bilgisayarınızda **Sideloadly** veya **AltStore** programını açın.
             3. iPhone'unuzu kabloyla bilgisayara bağlayın.

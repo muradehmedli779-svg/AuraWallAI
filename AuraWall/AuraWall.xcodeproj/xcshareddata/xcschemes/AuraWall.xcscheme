@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A10000012026102300000001"
+               BlueprintIdentifier = "T01000012026102300000001"
                BuildableName = "AuraWall.app"
                BlueprintName = "AuraWall"
                ReferencedContainer = "container:AuraWall.xcodeproj">
@@ -43,7 +43,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A10000012026102300000001"
+            BlueprintIdentifier = "T01000012026102300000001"
             BuildableName = "AuraWall.app"
             BlueprintName = "AuraWall"
             ReferencedContainer = "container:AuraWall.xcodeproj">
@@ -60,7 +60,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A10000012026102300000001"
+            BlueprintIdentifier = "T01000012026102300000001"
             BuildableName = "AuraWall.app"
             BlueprintName = "AuraWall"
             ReferencedContainer = "container:AuraWall.xcodeproj">

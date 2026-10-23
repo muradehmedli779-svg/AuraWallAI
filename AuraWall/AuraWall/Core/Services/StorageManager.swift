@@ -31,7 +31,7 @@ public final class StorageManager: ObservableObject {
         }
         
         do {
-            self.savedProjects = try JSONDecoder().decode([WallpaperProject].self, data: data)
+            self.savedProjects = try JSONDecoder().decode([WallpaperProject].self, from: data)
         } catch {
             print("Failed to decode saved projects: \(error)")
         }

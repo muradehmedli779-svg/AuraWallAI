@@ -199,7 +199,7 @@ public struct ImageAnalysisView: View {
                             .fill(Color(hex: hex) ?? .gray)
                             .frame(width: 16, height: 16)
                         Text(hex)
-                            .font(.system(size: 11, weight: .monospaced))
+                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
                             .foregroundColor(.white.opacity(0.8))
                     }
                     .padding(.horizontal, 10)

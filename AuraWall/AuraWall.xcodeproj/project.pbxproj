@@ -7,86 +7,75 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B10000012026102300000001 /* AuraWallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000012026102300000001 /* AuraWallApp.swift */; };
-		B10000022026102300000002 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000022026102300000002 /* Configuration.swift */; };
-		B10000032026102300000003 /* WallpaperProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000032026102300000003 /* WallpaperProject.swift */; };
-		B10000042026102300000004 /* DeviceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000042026102300000004 /* DeviceProfile.swift */; };
-		B10000052026102300000005 /* ImageAnalysisResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000052026102300000005 /* ImageAnalysisResult.swift */; };
-		B10000062026102300000006 /* GenerationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000062026102300000006 /* GenerationStyle.swift */; };
-		B10000072026102300000007 /* SubscriptionPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000072026102300000007 /* SubscriptionPlan.swift */; };
-		B10000082026102300000008 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000082026102300000008 /* APIClient.swift */; };
-		B10000092026102300000009 /* NetworkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000092026102300000009 /* NetworkEndpoints.swift */; };
-		B10000102026102300000010 /* ImageAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000102026102300000010 /* ImageAnalysisService.swift */; };
-		B10000112026102300000011 /* WallpaperGenerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000112026102300000011 /* WallpaperGenerationService.swift */; };
-		B10000122026102300000012 /* LockScreenCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000122026102300000012 /* LockScreenCompositor.swift */; };
-		B10000132026102300000013 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000132026102300000013 /* StoreKitManager.swift */; };
-		B10000142026102300000014 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000142026102300000014 /* StorageManager.swift */; };
-		B10000152026102300000015 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000152026102300000015 /* HapticManager.swift */; };
-		B10000162026102300000016 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000162026102300000016 /* Extensions.swift */; };
-		B10000172026102300000017 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000172026102300000017 /* OnboardingView.swift */; };
-		B10000182026102300000018 /* HomeGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000182026102300000018 /* HomeGalleryView.swift */; };
-		B10000192026102300000019 /* PhotoImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000192026102300000019 /* PhotoImportView.swift */; };
-		B10000202026102300000020 /* ImageAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000202026102300000020 /* ImageAnalysisView.swift */; };
-		B10000212026102300000021 /* StyleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000212026102300000021 /* StyleSelectionView.swift */; };
-		B10000222026102300000022 /* GenerationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000222026102300000022 /* GenerationProgressView.swift */; };
-		B10000232026102300000023 /* WallpaperEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000232026102300000023 /* WallpaperEditorView.swift */; };
-		B10000242026102300000024 /* LockScreenPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000242026102300000024 /* LockScreenPreviewView.swift */; };
-		B10000252026102300000025 /* VariationsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000252026102300000025 /* VariationsGridView.swift */; };
-		B10000262026102300000026 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000262026102300000026 /* ExportView.swift */; };
-		B10000272026102300000027 /* WallpaperSetupGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000272026102300000027 /* WallpaperSetupGuideView.swift */; };
-		B10000282026102300000028 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000282026102300000028 /* PaywallView.swift */; };
-		B10000292026102300000029 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000292026102300000029 /* SettingsView.swift */; };
-		B10000302026102300000030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10000302026102300000030 /* Assets.xcassets */; };
-		B10000312026102300000031 /* AuraWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000312026102300000031 /* AuraWallTests.swift */; };
+		B01000012026102300000001 /* AuraWallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000012026102300000001 /* AuraWallApp.swift */; };
+		B01000022026102300000002 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000022026102300000002 /* Configuration.swift */; };
+		B01000032026102300000003 /* WallpaperProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000032026102300000003 /* WallpaperProject.swift */; };
+		B01000042026102300000004 /* DeviceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000042026102300000004 /* DeviceProfile.swift */; };
+		B01000052026102300000005 /* ImageAnalysisResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000052026102300000005 /* ImageAnalysisResult.swift */; };
+		B01000062026102300000006 /* GenerationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000062026102300000006 /* GenerationStyle.swift */; };
+		B01000072026102300000007 /* SubscriptionPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000072026102300000007 /* SubscriptionPlan.swift */; };
+		B01000082026102300000008 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000082026102300000008 /* APIClient.swift */; };
+		B01000092026102300000009 /* NetworkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000092026102300000009 /* NetworkEndpoints.swift */; };
+		B01000102026102300000010 /* ImageAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000102026102300000010 /* ImageAnalysisService.swift */; };
+		B01000112026102300000011 /* WallpaperGenerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000112026102300000011 /* WallpaperGenerationService.swift */; };
+		B01000122026102300000012 /* LockScreenCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000122026102300000012 /* LockScreenCompositor.swift */; };
+		B01000132026102300000013 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000132026102300000013 /* StoreKitManager.swift */; };
+		B01000142026102300000014 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000142026102300000014 /* StorageManager.swift */; };
+		B01000152026102300000015 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000152026102300000015 /* HapticManager.swift */; };
+		B01000162026102300000016 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000162026102300000016 /* Extensions.swift */; };
+		B01000172026102300000017 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000172026102300000017 /* OnboardingView.swift */; };
+		B01000182026102300000018 /* HomeGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000182026102300000018 /* HomeGalleryView.swift */; };
+		B01000192026102300000019 /* PhotoImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000192026102300000019 /* PhotoImportView.swift */; };
+		B01000202026102300000020 /* ImageAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000202026102300000020 /* ImageAnalysisView.swift */; };
+		B01000212026102300000021 /* StyleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000212026102300000021 /* StyleSelectionView.swift */; };
+		B01000222026102300000022 /* GenerationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000222026102300000022 /* GenerationProgressView.swift */; };
+		B01000232026102300000023 /* WallpaperEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000232026102300000023 /* WallpaperEditorView.swift */; };
+		B01000242026102300000024 /* LockScreenPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000242026102300000024 /* LockScreenPreviewView.swift */; };
+		B01000252026102300000025 /* VariationsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000252026102300000025 /* VariationsGridView.swift */; };
+		B01000262026102300000026 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000262026102300000026 /* ExportView.swift */; };
+		B01000272026102300000027 /* WallpaperSetupGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000272026102300000027 /* WallpaperSetupGuideView.swift */; };
+		B01000282026102300000028 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000282026102300000028 /* PaywallView.swift */; };
+		B01000292026102300000029 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000292026102300000029 /* SettingsView.swift */; };
+		B01000302026102300000030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F01000302026102300000030 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A10000012026102300000001 /* AuraWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuraWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A10000022026102300000002 /* AuraWallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuraWallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F10000012026102300000001 /* AuraWallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuraWallApp.swift; sourceTree = "<group>"; };
-		F10000022026102300000002 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		F10000032026102300000003 /* WallpaperProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperProject.swift; sourceTree = "<group>"; };
-		F10000042026102300000004 /* DeviceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProfile.swift; sourceTree = "<group>"; };
-		F10000052026102300000005 /* ImageAnalysisResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisResult.swift; sourceTree = "<group>"; };
-		F10000062026102300000006 /* GenerationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationStyle.swift; sourceTree = "<group>"; };
-		F10000072026102300000007 /* SubscriptionPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPlan.swift; sourceTree = "<group>"; };
-		F10000082026102300000008 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		F10000092026102300000009 /* NetworkEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoints.swift; sourceTree = "<group>"; };
-		F10000102026102300000010 /* ImageAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisService.swift; sourceTree = "<group>"; };
-		F10000112026102300000011 /* WallpaperGenerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGenerationService.swift; sourceTree = "<group>"; };
-		F10000122026102300000012 /* LockScreenCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenCompositor.swift; sourceTree = "<group>"; };
-		F10000132026102300000013 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
-		F10000142026102300000014 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		F10000152026102300000015 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
-		F10000162026102300000016 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F10000172026102300000017 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		F10000182026102300000018 /* HomeGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGalleryView.swift; sourceTree = "<group>"; };
-		F10000192026102300000019 /* PhotoImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImportView.swift; sourceTree = "<group>"; };
-		F10000202026102300000020 /* ImageAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisView.swift; sourceTree = "<group>"; };
-		F10000212026102300000021 /* StyleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectionView.swift; sourceTree = "<group>"; };
-		F10000222026102300000022 /* GenerationProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationProgressView.swift; sourceTree = "<group>"; };
-		F10000232026102300000023 /* WallpaperEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperEditorView.swift; sourceTree = "<group>"; };
-		F10000242026102300000024 /* LockScreenPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenPreviewView.swift; sourceTree = "<group>"; };
-		F10000252026102300000025 /* VariationsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationsGridView.swift; sourceTree = "<group>"; };
-		F10000262026102300000026 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
-		F10000272026102300000027 /* WallpaperSetupGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSetupGuideView.swift; sourceTree = "<group>"; };
-		F10000282026102300000028 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
-		F10000292026102300000029 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		F10000302026102300000030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F10000312026102300000031 /* AuraWallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuraWallTests.swift; sourceTree = "<group>"; };
-		F10000322026102300000032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F10000332026102300000033 /* AuraWall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuraWall.entitlements; sourceTree = "<group>"; };
+		P01000012026102300000001 /* AuraWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuraWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01000012026102300000001 /* AuraWallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuraWallApp.swift; sourceTree = "<group>"; };
+		F01000022026102300000002 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		F01000032026102300000003 /* WallpaperProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperProject.swift; sourceTree = "<group>"; };
+		F01000042026102300000004 /* DeviceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProfile.swift; sourceTree = "<group>"; };
+		F01000052026102300000005 /* ImageAnalysisResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisResult.swift; sourceTree = "<group>"; };
+		F01000062026102300000006 /* GenerationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationStyle.swift; sourceTree = "<group>"; };
+		F01000072026102300000007 /* SubscriptionPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPlan.swift; sourceTree = "<group>"; };
+		F01000082026102300000008 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F01000092026102300000009 /* NetworkEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoints.swift; sourceTree = "<group>"; };
+		F01000102026102300000010 /* ImageAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisService.swift; sourceTree = "<group>"; };
+		F01000112026102300000011 /* WallpaperGenerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGenerationService.swift; sourceTree = "<group>"; };
+		F01000122026102300000012 /* LockScreenCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenCompositor.swift; sourceTree = "<group>"; };
+		F01000132026102300000013 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		F01000142026102300000014 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		F01000152026102300000015 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		F01000162026102300000016 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F01000172026102300000017 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F01000182026102300000018 /* HomeGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGalleryView.swift; sourceTree = "<group>"; };
+		F01000192026102300000019 /* PhotoImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImportView.swift; sourceTree = "<group>"; };
+		F01000202026102300000020 /* ImageAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisView.swift; sourceTree = "<group>"; };
+		F01000212026102300000021 /* StyleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectionView.swift; sourceTree = "<group>"; };
+		F01000222026102300000022 /* GenerationProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationProgressView.swift; sourceTree = "<group>"; };
+		F01000232026102300000023 /* WallpaperEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperEditorView.swift; sourceTree = "<group>"; };
+		F01000242026102300000024 /* LockScreenPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenPreviewView.swift; sourceTree = "<group>"; };
+		F01000252026102300000025 /* VariationsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationsGridView.swift; sourceTree = "<group>"; };
+		F01000262026102300000026 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		F01000272026102300000027 /* WallpaperSetupGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSetupGuideView.swift; sourceTree = "<group>"; };
+		F01000282026102300000028 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		F01000292026102300000029 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F01000302026102300000030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F01000322026102300000032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C10000012026102300000001 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C10000022026102300000002 /* Frameworks */ = {
+		C01000012026102300000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -96,131 +85,168 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		G00000012026102300000001 = {
+		G01000012026102300000001 = {
 			isa = PBXGroup;
 			children = (
-				G00000022026102300000002 /* AuraWall */,
-				G00000102026102300000010 /* Tests */,
-				G00000112026102300000011 /* Products */,
+				G01000022026102300000002 /* AuraWall */,
+				G01000112026102300000011 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		G00000022026102300000002 /* AuraWall */ = {
+		G01000022026102300000002 /* AuraWall */ = {
 			isa = PBXGroup;
 			children = (
-				G00000032026102300000003 /* App */,
-				G00000042026102300000004 /* Core */,
-				G00000082026102300000008 /* Features */,
-				G00000092026102300000009 /* Resources */,
+				G01000032026102300000003 /* App */,
+				G01000042026102300000004 /* Core */,
+				G01000082026102300000008 /* Features */,
+				G01000092026102300000009 /* Resources */,
 			);
 			path = AuraWall;
 			sourceTree = "<group>";
 		};
-		G00000032026102300000003 /* App */ = {
+		G01000032026102300000003 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F10000012026102300000001 /* AuraWallApp.swift */,
-				F10000022026102300000002 /* Configuration.swift */,
+				F01000012026102300000001 /* AuraWallApp.swift */,
+				F01000022026102300000002 /* Configuration.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		G00000042026102300000004 /* Core */ = {
+		G01000042026102300000004 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				G00000052026102300000005 /* Models */,
-				G00000062026102300000006 /* Network */,
-				G00000072026102300000007 /* Services */,
-				G00000122026102300000012 /* Utilities */,
+				G01000052026102300000005 /* Models */,
+				G01000062026102300000006 /* Network */,
+				G01000072026102300000007 /* Services */,
+				G01000122026102300000012 /* Utilities */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		G00000052026102300000005 /* Models */ = {
+		G01000052026102300000005 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F10000032026102300000003 /* WallpaperProject.swift */,
-				F10000042026102300000004 /* DeviceProfile.swift */,
-				F10000052026102300000005 /* ImageAnalysisResult.swift */,
-				F10000062026102300000006 /* GenerationStyle.swift */,
-				F10000072026102300000007 /* SubscriptionPlan.swift */,
+				F01000032026102300000003 /* WallpaperProject.swift */,
+				F01000042026102300000004 /* DeviceProfile.swift */,
+				F01000052026102300000005 /* ImageAnalysisResult.swift */,
+				F01000062026102300000006 /* GenerationStyle.swift */,
+				F01000072026102300000007 /* SubscriptionPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		G00000062026102300000006 /* Network */ = {
+		G01000062026102300000006 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F10000082026102300000008 /* APIClient.swift */,
-				F10000092026102300000009 /* NetworkEndpoints.swift */,
+				F01000082026102300000008 /* APIClient.swift */,
+				F01000092026102300000009 /* NetworkEndpoints.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		G00000072026102300000007 /* Services */ = {
+		G01000072026102300000007 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F10000102026102300000010 /* ImageAnalysisService.swift */,
-				F10000112026102300000011 /* WallpaperGenerationService.swift */,
-				F10000122026102300000012 /* LockScreenCompositor.swift */,
-				F10000132026102300000013 /* StoreKitManager.swift */,
-				F10000142026102300000014 /* StorageManager.swift */,
+				F01000102026102300000010 /* ImageAnalysisService.swift */,
+				F01000112026102300000011 /* WallpaperGenerationService.swift */,
+				F01000122026102300000012 /* LockScreenCompositor.swift */,
+				F01000132026102300000013 /* StoreKitManager.swift */,
+				F01000142026102300000014 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		G00000122026102300000012 /* Utilities */ = {
+		G01000122026102300000012 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F10000152026102300000015 /* HapticManager.swift */,
-				F10000162026102300000016 /* Extensions.swift */,
+				F01000152026102300000015 /* HapticManager.swift */,
+				F01000162026102300000016 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		G00000082026102300000008 /* Features */ = {
+		G01000082026102300000008 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				F10000172026102300000017 /* OnboardingView.swift */,
-				F10000182026102300000018 /* HomeGalleryView.swift */,
-				F10000192026102300000019 /* PhotoImportView.swift */,
-				F10000202026102300000020 /* ImageAnalysisView.swift */,
-				F10000212026102300000021 /* StyleSelectionView.swift */,
-				F10000222026102300000022 /* GenerationProgressView.swift */,
-				F10000232026102300000023 /* WallpaperEditorView.swift */,
-				F10000242026102300000024 /* LockScreenPreviewView.swift */,
-				F10000252026102300000025 /* VariationsGridView.swift */,
-				F10000262026102300000026 /* ExportView.swift */,
-				F10000272026102300000027 /* WallpaperSetupGuideView.swift */,
-				F10000282026102300000028 /* PaywallView.swift */,
-				F10000292026102300000029 /* SettingsView.swift */,
+				GF0000012026102300000001 /* Onboarding */,
+				GF0000022026102300000002 /* Home */,
+				GF0000032026102300000003 /* Creation */,
+				GF0000042026102300000004 /* Editor */,
+				GF0000052026102300000005 /* Export */,
+				GF0000062026102300000006 /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		G00000092026102300000009 /* Resources */ = {
+		GF0000012026102300000001 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F10000302026102300000030 /* Assets.xcassets */,
-				F10000322026102300000032 /* Info.plist */,
-				F10000332026102300000033 /* AuraWall.entitlements */,
+				F01000172026102300000017 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		GF0000022026102300000002 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F01000182026102300000018 /* HomeGalleryView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		GF0000032026102300000003 /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				F01000192026102300000019 /* PhotoImportView.swift */,
+				F01000202026102300000020 /* ImageAnalysisView.swift */,
+				F01000212026102300000021 /* StyleSelectionView.swift */,
+				F01000222026102300000022 /* GenerationProgressView.swift */,
+			);
+			path = Creation;
+			sourceTree = "<group>";
+		};
+		GF0000042026102300000004 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				F01000232026102300000023 /* WallpaperEditorView.swift */,
+				F01000242026102300000024 /* LockScreenPreviewView.swift */,
+				F01000252026102300000025 /* VariationsGridView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		GF0000052026102300000005 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				F01000262026102300000026 /* ExportView.swift */,
+				F01000272026102300000027 /* WallpaperSetupGuideView.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		GF0000062026102300000006 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F01000282026102300000028 /* PaywallView.swift */,
+				F01000292026102300000029 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		G01000092026102300000009 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F01000302026102300000030 /* Assets.xcassets */,
+				F01000322026102300000032 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		G00000102026102300000010 /* Tests */ = {
+		G01000112026102300000011 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F10000312026102300000031 /* AuraWallTests.swift */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		G00000112026102300000011 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A10000012026102300000001 /* AuraWall.app */,
-				A10000022026102300000002 /* AuraWallTests.xctest */,
+				P01000012026102300000001 /* AuraWall.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,13 +254,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A10000012026102300000001 /* AuraWall */ = {
+		T01000012026102300000001 /* AuraWall */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = Z10000012026102300000001 /* Build configuration list for PBXNativeTarget "AuraWall" */;
+			buildConfigurationList = Z01000012026102300000001 /* Build configuration list for PBXNativeTarget "AuraWall" */;
 			buildPhases = (
-				S10000012026102300000001 /* Sources */,
-				C10000012026102300000001 /* Frameworks */,
-				R10000012026102300000001 /* Resources */,
+				S01000012026102300000001 /* Sources */,
+				C01000012026102300000001 /* Frameworks */,
+				R01000012026102300000001 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,45 +268,25 @@
 			);
 			name = AuraWall;
 			productName = AuraWall;
-			productReference = A10000012026102300000001 /* AuraWall.app */;
+			productReference = P01000012026102300000001 /* AuraWall.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A10000022026102300000002 /* AuraWallTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = Z10000022026102300000002 /* Build configuration list for PBXNativeTarget "AuraWallTests" */;
-			buildPhases = (
-				S10000022026102300000002 /* Sources */,
-				C10000022026102300000002 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AuraWallTests;
-			productName = AuraWallTests;
-			productReference = A10000022026102300000002 /* AuraWallTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		P10000012026102300000001 /* Project object */ = {
+		J01000012026102300000001 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					A10000012026102300000001 = {
-						CreatedOnToolsVersion = 16.0;
-					};
-					A10000022026102300000002 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = A10000012026102300000001;
+					T01000012026102300000001 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = Z10000002026102300000000 /* Build configuration list for PBXProject "AuraWall" */;
+			buildConfigurationList = Z01000002026102300000000 /* Build configuration list for PBXProject "AuraWall" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -288,76 +294,68 @@
 				en,
 				Base,
 			);
-			mainGroup = G00000012026102300000001;
-			productRefGroup = G00000112026102300000011 /* Products */;
+			mainGroup = G01000012026102300000001;
+			productRefGroup = G01000112026102300000011 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A10000012026102300000001 /* AuraWall */,
+				T01000012026102300000001 /* AuraWall */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		R10000012026102300000001 /* Resources */ = {
+		R01000012026102300000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B10000302026102300000030 /* Assets.xcassets in Resources */,
+				B01000302026102300000030 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		S10000012026102300000001 /* Sources */ = {
+		S01000012026102300000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B10000012026102300000001 /* AuraWallApp.swift in Sources */,
-				B10000022026102300000002 /* Configuration.swift in Sources */,
-				B10000032026102300000003 /* WallpaperProject.swift in Sources */,
-				B10000042026102300000004 /* DeviceProfile.swift in Sources */,
-				B10000052026102300000005 /* ImageAnalysisResult.swift in Sources */,
-				B10000062026102300000006 /* GenerationStyle.swift in Sources */,
-				B10000072026102300000007 /* SubscriptionPlan.swift in Sources */,
-				B10000082026102300000008 /* APIClient.swift in Sources */,
-				B10000092026102300000009 /* NetworkEndpoints.swift in Sources */,
-				B10000102026102300000010 /* ImageAnalysisService.swift in Sources */,
-				B10000112026102300000011 /* WallpaperGenerationService.swift in Sources */,
-				B10000122026102300000012 /* LockScreenCompositor.swift in Sources */,
-				B10000132026102300000013 /* StoreKitManager.swift in Sources */,
-				B10000142026102300000014 /* StorageManager.swift in Sources */,
-				B10000152026102300000015 /* HapticManager.swift in Sources */,
-				B10000162026102300000016 /* Extensions.swift in Sources */,
-				B10000172026102300000017 /* OnboardingView.swift in Sources */,
-				B10000182026102300000018 /* HomeGalleryView.swift in Sources */,
-				B10000192026102300000019 /* PhotoImportView.swift in Sources */,
-				B10000202026102300000020 /* ImageAnalysisView.swift in Sources */,
-				B10000212026102300000021 /* StyleSelectionView.swift in Sources */,
-				B10000222026102300000022 /* GenerationProgressView.swift in Sources */,
-				B10000232026102300000023 /* WallpaperEditorView.swift in Sources */,
-				B10000242026102300000024 /* LockScreenPreviewView.swift in Sources */,
-				B10000252026102300000025 /* VariationsGridView.swift in Sources */,
-				B10000262026102300000026 /* ExportView.swift in Sources */,
-				B10000272026102300000027 /* WallpaperSetupGuideView.swift in Sources */,
-				B10000282026102300000028 /* PaywallView.swift in Sources */,
-				B10000292026102300000029 /* SettingsView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		S10000022026102300000002 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B10000312026102300000031 /* AuraWallTests.swift in Sources */,
+				B01000012026102300000001 /* AuraWallApp.swift in Sources */,
+				B01000022026102300000002 /* Configuration.swift in Sources */,
+				B01000032026102300000003 /* WallpaperProject.swift in Sources */,
+				B01000042026102300000004 /* DeviceProfile.swift in Sources */,
+				B01000052026102300000005 /* ImageAnalysisResult.swift in Sources */,
+				B01000062026102300000006 /* GenerationStyle.swift in Sources */,
+				B01000072026102300000007 /* SubscriptionPlan.swift in Sources */,
+				B01000082026102300000008 /* APIClient.swift in Sources */,
+				B01000092026102300000009 /* NetworkEndpoints.swift in Sources */,
+				B01000102026102300000010 /* ImageAnalysisService.swift in Sources */,
+				B01000112026102300000011 /* WallpaperGenerationService.swift in Sources */,
+				B01000122026102300000012 /* LockScreenCompositor.swift in Sources */,
+				B01000132026102300000013 /* StoreKitManager.swift in Sources */,
+				B01000142026102300000014 /* StorageManager.swift in Sources */,
+				B01000152026102300000015 /* HapticManager.swift in Sources */,
+				B01000162026102300000016 /* Extensions.swift in Sources */,
+				B01000172026102300000017 /* OnboardingView.swift in Sources */,
+				B01000182026102300000018 /* HomeGalleryView.swift in Sources */,
+				B01000192026102300000019 /* PhotoImportView.swift in Sources */,
+				B01000202026102300000020 /* ImageAnalysisView.swift in Sources */,
+				B01000212026102300000021 /* StyleSelectionView.swift in Sources */,
+				B01000222026102300000022 /* GenerationProgressView.swift in Sources */,
+				B01000232026102300000023 /* WallpaperEditorView.swift in Sources */,
+				B01000242026102300000024 /* LockScreenPreviewView.swift in Sources */,
+				B01000252026102300000025 /* VariationsGridView.swift in Sources */,
+				B01000262026102300000026 /* ExportView.swift in Sources */,
+				B01000272026102300000027 /* WallpaperSetupGuideView.swift in Sources */,
+				B01000282026102300000028 /* PaywallView.swift in Sources */,
+				B01000292026102300000029 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		W10000012026102300000001 /* Debug */ = {
+		W01000012026102300000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -386,7 +384,7 @@
 			};
 			name = Debug;
 		};
-		W10000022026102300000002 /* Release */ = {
+		W01000022026102300000002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -409,17 +407,15 @@
 			};
 			name = Release;
 		};
-		W10000032026102300000003 /* Debug */ = {
+		W01000032026102300000003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AuraWall/Resources/Info.plist;
@@ -436,17 +432,15 @@
 			};
 			name = Debug;
 		};
-		W10000042026102300000004 /* Release */ = {
+		W01000042026102300000004 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AuraWall/Resources/Info.plist;
@@ -460,67 +454,26 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1";
-			};
-			name = Release;
-		};
-		W10000052026102300000005 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aurawall.app.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AuraWall.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AuraWall";
-			};
-			name = Debug;
-		};
-		W10000062026102300000006 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aurawall.app.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AuraWall.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AuraWall";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		Z10000002026102300000000 /* Build configuration list for PBXProject "AuraWall" */ = {
+		Z01000002026102300000000 /* Build configuration list for PBXProject "AuraWall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				W10000012026102300000001 /* Debug */,
-				W10000022026102300000002 /* Release */,
+				W01000012026102300000001 /* Debug */,
+				W01000022026102300000002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		Z10000012026102300000001 /* Build configuration list for PBXNativeTarget "AuraWall" */ = {
+		Z01000012026102300000001 /* Build configuration list for PBXNativeTarget "AuraWall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				W10000032026102300000003 /* Debug */,
-				W10000042026102300000004 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		Z10000022026102300000002 /* Build configuration list for PBXNativeTarget "AuraWallTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				W10000052026102300000005 /* Debug */,
-				W10000062026102300000006 /* Release */,
+				W01000032026102300000003 /* Debug */,
+				W01000042026102300000004 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -528,5 +481,5 @@
 /* End XCConfigurationList section */
 
 	};
-	rootObject = P10000012026102300000001 /* Project object */;
+	rootObject = J01000012026102300000001 /* Project object */;
 }

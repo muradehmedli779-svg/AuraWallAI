@@ -80,7 +80,7 @@ public actor APIClient {
         }
         
         do {
-            return try JSONDecoder().decode(AnalyzeImageResponse.self, data: data)
+            return try JSONDecoder().decode(AnalyzeImageResponse.self, from: data)
         } catch {
             throw APIError.decodingError(error)
         }
@@ -106,7 +106,7 @@ public actor APIClient {
         }
         
         do {
-            return try JSONDecoder().decode(GenerateWallpaperResponse.self, data: data)
+            return try JSONDecoder().decode(GenerateWallpaperResponse.self, from: data)
         } catch {
             throw APIError.decodingError(error)
         }
