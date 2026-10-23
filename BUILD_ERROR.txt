@@ -1,0 +1,7 @@
+=== BUILD ERROR ===
+2026-10-23 20:26:11.707 xcodebuild[1111:5842] -[PBXNativeTarget group]: unrecognized selector sent to instance 0x1408c3620
+2026-10-23 20:26:11.729 xcodebuild[1111:5842] Writing error result bundle to /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/ResultBundle_2026-23-10_20-26-0011.xcresult
+xcodebuild: error: Unable to read project 'AuraWall.xcodeproj' from folder '/Users/runner/work/AuraWallAI/AuraWallAI/AuraWall'.
+	Reason: The project ‘AuraWall’ is damaged and cannot be opened. Examine the project file for invalid edits or unresolved source control conflicts.
+
+Path: /Users/runner/work/AuraWallAI/AuraWallAI/AuraWall/AuraWall.xcodeproj
