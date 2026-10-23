@@ -1,0 +1,72 @@
+name: Build and Release iOS IPA
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-ipa:
+    name: Build AuraWall IPA on macOS
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 15/16
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Verify Environment
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Build Xcode Archive (Unsigned / Ad-Hoc for Sideloading)
+        run: |
+          xcodebuild archive \
+            -project AuraWall/AuraWall.xcodeproj \
+            -scheme AuraWall \
+            -configuration Release \
+            -archivePath build/AuraWall.xcarchive \
+            -destination "generic/platform=iOS" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package Payload into IPA
+        run: |
+          mkdir -p build/Payload
+          cp -r build/AuraWall.xcarchive/Products/Applications/AuraWall.app build/Payload/
+          cd build
+          zip -r AuraWall.ipa Payload
+          cd ..
+          ls -la build/AuraWall.ipa
+
+      - name: Upload IPA as Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AuraWall-IPA
+          path: build/AuraWall.ipa
+          retention-days: 30
+
+      - name: Create GitHub Release with IPA
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        with:
+          tag_name: v1.0.0-${{ github.run_number }}
+          name: AuraWall AI iOS IPA Build #${{ github.run_number }}
+          body: |
+            ## 📱 AuraWall AI — Hazır iOS IPA Dosyası
+            
+            Bu IPA dosyası buluttaki macOS-14 ortamında otomatik olarak derlendi.
+            
+            ### 🚀 Telefona Nasıl Yüklenir?
+            1. Aşağıdaki **AuraWall.ipa** dosyasını indirin.
+            2. Bilgisayarınızda **Sideloadly** veya **AltStore** programını açın.
+            3. iPhone'unuzu kabloyla bilgisayara bağlayın.
+            4. `AuraWall.ipa` dosyasını Sideloadly'ye sürükleyin ve **Start** butonuna basın.
+            5. Uygulama birkaç saniye içinde iPhone'unuza yüklenecektir!
+          files: build/AuraWall.ipa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
