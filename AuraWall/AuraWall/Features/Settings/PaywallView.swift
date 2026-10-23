@@ -10,7 +10,7 @@ public struct PaywallView: View {
         ZStack {
             Color.auraDarkBg.ignoresSafeArea()
             
-            // Atmospheric Glow
+            // Atmosferik Işıma
             RadialGradient(
                 colors: [Color.auraAccent.opacity(0.25), Color.clear],
                 center: .top,
@@ -58,11 +58,11 @@ public struct PaywallView: View {
                     .foregroundColor(Color(hex: "#FFD700")!)
             }
             
-            Text("Unlock AuraWall Pro")
+            Text("AuraWall Pro'yu Aç")
                 .font(.system(size: 28, weight: .black))
                 .foregroundColor(.white)
             
-            Text("Unlimited ultra-resolution AI wallpaper generations, subject depth separation, and exclusive OLED aesthetic models.")
+            Text("Sınırsız ultra çözünürlüklü yapay zeka duvar kağıdı üretimi, konu derinlik ayrımı ve özel OLED estetik modeller.")
                 .font(.subheadline)
                 .foregroundColor(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
@@ -111,7 +111,7 @@ public struct PaywallView: View {
                                     .foregroundColor(.white)
                                 
                                 if plan == .yearly {
-                                    Text("SAVE 50%")
+                                    Text("%50 TASARRUF")
                                         .font(.system(size: 9, weight: .heavy))
                                         .foregroundColor(.black)
                                         .padding(.horizontal, 6)
@@ -153,7 +153,6 @@ public struct PaywallView: View {
         Button(action: {
             HapticManager.shared.heavy()
             Task {
-                // If real StoreKit product found, purchase it; otherwise trigger debug entitlement
                 if let product = storeKitManager.availableProducts.first(where: { $0.id == selectedPlan.id }) {
                     _ = try? await storeKitManager.purchase(product)
                 } else {
@@ -162,7 +161,7 @@ public struct PaywallView: View {
                 dismiss()
             }
         }) {
-            Text("Start Free Trial & Subscribe")
+            Text("Ücretsiz Denemeyi Başlat ve Abone Ol")
                 .font(.headline.weight(.bold))
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity)
@@ -181,15 +180,15 @@ public struct PaywallView: View {
     
     private var footerLinks: some View {
         HStack(spacing: 18) {
-            Button("Restore Purchases") {
+            Button("Satın Alımları Geri Yükle") {
                 Task {
                     await storeKitManager.restorePurchases()
                 }
             }
             Text("•")
-            Button("Terms") {}
+            Button("Kullanım Şartları") {}
             Text("•")
-            Button("Privacy Policy") {}
+            Button("Gizlilik Politikası") {}
         }
         .font(.caption2)
         .foregroundColor(.white.opacity(0.5))

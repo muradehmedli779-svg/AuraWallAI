@@ -16,23 +16,23 @@ public enum SubscriptionPlanType: String, CaseIterable, Identifiable {
     
     public var title: String {
         switch self {
-        case .monthly: return "Pro Monthly"
-        case .yearly: return "Pro Yearly (Best Value)"
-        case .lifetime: return "Lifetime Access"
+        case .monthly: return "Pro Aylık"
+        case .yearly: return "Pro Yıllık (En İyi Değer)"
+        case .lifetime: return "Ömür Boyu Erişim"
         }
     }
     
     public var priceDisplay: String {
         switch self {
-        case .monthly: return "$4.99 / mo"
-        case .yearly: return "$29.99 / yr ($2.50/mo)"
-        case .lifetime: return "$59.99 once"
+        case .monthly: return "₺149,99 / ay"
+        case .yearly: return "₺899,99 / yıl (₺75/ay)"
+        case .lifetime: return "₺1.799,99 tek seferlik"
         }
     }
     
     public var trialDescription: String? {
         switch self {
-        case .yearly: return "Includes 3-day free trial"
+        case .yearly: return "3 günlük ücretsiz deneme dahil"
         default: return nil
         }
     }
@@ -40,28 +40,28 @@ public enum SubscriptionPlanType: String, CaseIterable, Identifiable {
     public static let features: [SubscriptionFeature] = [
         SubscriptionFeature(
             icon: "sparkles",
-            title: "Unlimited 4K AI Generations",
-            subtitle: "Powered by FLUX 1.1 Pro and DALL-E 3 ultra resolution"
+            title: "Sınırsız 4K Yapay Zeka Üretimi",
+            subtitle: "FLUX 1.1 Pro ve DALL-E 3 ultra çözünürlük ile desteklenir"
         ),
         SubscriptionFeature(
             icon: "clock.badge.checkmark",
-            title: "Smart Lock Screen Depth Matting",
-            subtitle: "Automatic clock occlusion handling and foreground layer separation"
+            title: "Akıllı Kilit Ekranı Derinlik Matting",
+            subtitle: "Otomatik saat örtüşme yönetimi ve ön plan katman ayrımı"
         ),
         SubscriptionFeature(
             icon: "paintpalette.fill",
-            title: "Exclusive Pro Aesthetic Presets",
-            subtitle: "Liquid glassmorphism, cinematic 35mm, and OLED pure black styles"
+            title: "Özel Pro Estetik Ön Ayarlar",
+            subtitle: "Sıvı cam efekti, sinematik 35mm ve OLED saf siyah stiller"
         ),
         SubscriptionFeature(
             icon: "bolt.badge.automatic",
-            title: "Ultra-Fast GPU Priority Queue",
-            subtitle: "Generate variations in under 4 seconds without rate limits"
+            title: "Ultra Hızlı GPU Öncelik Kuyruğu",
+            subtitle: "Bekleme süresi olmadan 4 saniyenin altında varyasyon üret"
         ),
         SubscriptionFeature(
             icon: "arrow.down.to.line.compact",
-            title: "Lossless PNG & Live Photo Export",
-            subtitle: "Native 1290x2796 resolution mapped directly to your iPhone display"
+            title: "Kayıpsız PNG ve Canlı Fotoğraf Dışa Aktarım",
+            subtitle: "iPhone ekranınıza doğrudan eşlenmiş 1290x2796 çözünürlük"
         )
     ]
 }

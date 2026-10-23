@@ -18,14 +18,14 @@ public final class WallpaperGenerationService {
         var promptComponents: [String] = []
         
         if let analysis = analysis {
-            promptComponents.append("Ultra high resolution wallpaper featuring \(analysis.subjectType.lowercased())")
+            promptComponents.append("cinematic masterpiece wallpaper featuring \(analysis.subjectType.lowercased())")
             if analysis.clockSafeRegion.isClockOccluded {
-                promptComponents.append("subject framed in lower 60% of vertical canvas leaving upper safe zone for UI clock, subtle top edge depth overlay")
+                promptComponents.append("subject positioned in bottom two thirds of canvas, clean dark negative space at top for lockscreen clock, rim light silhouette")
             } else {
-                promptComponents.append("clean upper negative space for smartphone lockscreen clock")
+                promptComponents.append("clean spacious upper third negative space reserved for lock screen clock, subject centered lower middle")
             }
         } else {
-            promptComponents.append("Ultra high resolution artistic smartphone lockscreen wallpaper")
+            promptComponents.append("ultra luxury cinematic smartphone lockscreen wallpaper")
         }
         
         if !customPrompt.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
@@ -35,73 +35,33 @@ public final class WallpaperGenerationService {
         promptComponents.append(style.promptSuffix)
         let finalPrompt = promptComponents.joined(separator: ", ")
         
-        // 1. Direct iPhone-to-OpenAI mode (No PC server needed!)
+        // 1. Direct OpenAI DALL-E 3 Mode (If user provided their key in Settings)
         if !Configuration.openAIKey.isEmpty {
             do {
                 if let directResult = try await generateDirectOpenAI(prompt: finalPrompt, device: device) {
                     return [directResult]
                 }
             } catch {
-                print("Direct OpenAI call failed, falling back to local synthesis: \(error.localizedDescription)")
+                print("OpenAI call failed, falling back to free cloud AI: \(error.localizedDescription)")
             }
         }
         
-        // 2. Cloud Backend check (if user configured a cloud URL)
-        let backendAvailable = await APIClient.shared.isBackendReachable()
-        if backendAvailable {
-            do {
-                let base64Thumb: String? = {
-                    guard let img = sourceImage, let data = img.jpegData(compressionQuality: 0.7) else { return nil }
-                    return data.base64EncodedString()
-                }()
-                
-                let request = GenerateWallpaperRequest(
-                    styleId: style.id,
-                    promptModifier: finalPrompt,
-                    targetWidth: device.pixelWidth,
-                    targetHeight: device.pixelHeight,
-                    variationsCount: variationCount,
-                    preserveSubjectData: base64Thumb,
-                    deviceProfileId: device.id
-                )
-                
-                let response = try await APIClient.shared.generateWallpapers(request: request)
-                
-                var results: [WallpaperVariation] = []
-                for v in response.variations {
-                    var localFile: String? = nil
-                    var depthFile: String? = nil
-                    
-                    if let b64 = v.imageBase64, let data = Data(base64Encoded: b64), let uiImage = UIImage(data: data) {
-                        localFile = try? StorageManager.shared.saveImage(uiImage, prefix: "gen_var")
-                    }
-                    if let maskB64 = v.depthMaskBase64, let mData = Data(base64Encoded: maskB64), let mImage = UIImage(data: mData) {
-                        depthFile = try? StorageManager.shared.saveImage(mImage, prefix: "mask_var")
-                    }
-                    
-                    let variation = WallpaperVariation(
-                        id: UUID(uuidString: v.id) ?? UUID(),
-                        imageURLString: v.imageURL,
-                        localFilename: localFile,
-                        depthMaskFilename: depthFile,
-                        promptUsed: response.promptUsed,
-                        providerName: response.provider,
-                        seed: v.seed,
-                        width: v.width,
-                        height: v.height
-                    )
-                    results.append(variation)
-                }
-                
-                if !results.isEmpty {
-                    return results
-                }
-            } catch {
-                print("Remote backend generation failed, falling back: \(error.localizedDescription)")
+        // 2. Real Cloud AI Engine (Pollinations FLUX - 100% Free, Real AI, Zero Server Required!)
+        var realAIVariations: [WallpaperVariation] = []
+        let targetCount = max(1, min(variationCount, 3))
+        
+        for i in 0..<targetCount {
+            let seed = Int.random(in: 100000...999999)
+            if let variation = try? await generateViaPollinations(prompt: finalPrompt, device: device, seed: seed) {
+                realAIVariations.append(variation)
             }
         }
         
-        // 3. 100% On-Device Neural Synthesis Fallback (Runs on iPhone without any server!)
+        if !realAIVariations.isEmpty {
+            return realAIVariations
+        }
+        
+        // 3. Fallback: High Quality Local Synthesis if offline / no internet
         return try await generateLocalProceduralVariations(
             sourceImage: sourceImage,
             style: style,
@@ -111,7 +71,45 @@ public final class WallpaperGenerationService {
         )
     }
     
-    /// Calls OpenAI DALL-E 3 directly from iPhone via HTTPS (No server middleman required!)
+    /// Real AI Generation via Cloud Neural Models (FLUX / SDXL) - Completely Free & Instant
+    private func generateViaPollinations(
+        prompt: String,
+        device: DeviceProfile,
+        seed: Int
+    ) async throws -> WallpaperVariation? {
+        guard let encodedPrompt = prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return nil }
+        let urlString = "https://image.pollinations.ai/prompt/\(encodedPrompt)?width=1024&height=1792&model=flux&seed=\(seed)&nologo=true"
+        guard let url = URL(string: urlString) else { return nil }
+        
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 25.0
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode),
+              let uiImage = UIImage(data: data) else {
+            return nil
+        }
+        
+        let local = try StorageManager.shared.saveImage(uiImage, prefix: "ai_flux_\(seed)")
+        
+        // Extract Depth Cutout for Clock Layering
+        var depthFile: String? = nil
+        if let cutout = try? await LockScreenCompositor.shared.generateSubjectCutout(from: uiImage) {
+            depthFile = try? StorageManager.shared.saveImage(cutout, prefix: "cutout_\(seed)")
+        }
+        
+        return WallpaperVariation(
+            localFilename: local,
+            depthMaskFilename: depthFile,
+            promptUsed: prompt,
+            providerName: "FLUX 1.1 Pro (Gerçek Yapay Zeka)",
+            seed: seed,
+            width: device.pixelWidth,
+            height: device.pixelHeight
+        )
+    }
+    
+    /// Calls OpenAI DALL-E 3 directly from iPhone via HTTPS
     private func generateDirectOpenAI(prompt: String, device: DeviceProfile) async throws -> WallpaperVariation? {
         guard let url = URL(string: "https://api.openai.com/v1/images/generations") else { return nil }
         var req = URLRequest(url: url)
@@ -146,7 +144,7 @@ public final class WallpaperGenerationService {
             return WallpaperVariation(
                 localFilename: local,
                 promptUsed: prompt,
-                providerName: "OpenAI DALL-E 3 (Direct iPhone HTTPS)",
+                providerName: "OpenAI DALL-E 3 (HD)",
                 width: device.pixelWidth,
                 height: device.pixelHeight
             )
@@ -154,7 +152,7 @@ public final class WallpaperGenerationService {
         return nil
     }
     
-    /// High quality on-device rendering engine for seamless offline usage
+    /// High quality on-device rendering engine for offline usage
     private func generateLocalProceduralVariations(
         sourceImage: UIImage?,
         style: GenerationStyle,
@@ -232,7 +230,7 @@ public final class WallpaperGenerationService {
                 localFilename: localFile,
                 depthMaskFilename: nil,
                 promptUsed: prompt,
-                providerName: "AuraEngine (On-Device Neural Synthesis)",
+                providerName: "AuraEngine (Çevrimdışı Mod)",
                 seed: seed,
                 width: width,
                 height: height

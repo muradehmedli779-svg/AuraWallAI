@@ -10,7 +10,7 @@ public struct VariationsGridView: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                Text("Generated Variations (\(project.variations.count))")
+                Text("Oluşturulan Varyasyonlar (\(project.variations.count))")
                     .font(.caption.weight(.bold))
                     .foregroundColor(.white.opacity(0.8))
                 
@@ -22,7 +22,7 @@ public struct VariationsGridView: View {
                 }) {
                     HStack(spacing: 4) {
                         Image(systemName: "arrow.clockwise")
-                        Text("Regenerate")
+                        Text("Yeniden Oluştur")
                     }
                     .font(.caption.weight(.bold))
                     .foregroundColor(Color.auraCyan)

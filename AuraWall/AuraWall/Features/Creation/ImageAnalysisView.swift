@@ -29,7 +29,7 @@ public struct ImageAnalysisView: View {
                 }
             }
         }
-        .navigationTitle("Subject & Depth Analysis")
+        .navigationTitle("Konu ve Derinlik Analizi")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $navigateToStyle) {
             if let analysis = analysisResult {
@@ -47,11 +47,11 @@ public struct ImageAnalysisView: View {
                 .scaleEffect(1.6)
                 .tint(Color.auraCyan)
             
-            Text("Analyzing Subject & Depth Matting...")
+            Text("Konu ve Derinlik Analizi Yapılıyor...")
                 .font(.headline)
                 .foregroundColor(.white)
             
-            Text("Detecting bounding boxes, focal regions, and iOS Lock Screen clock clearance.")
+            Text("Sınırlayıcı kutular, odak bölgeleri ve iOS kilit ekranı saat uyumluluğu kontrol ediliyor.")
                 .font(.caption)
                 .foregroundColor(.white.opacity(0.6))
                 .multilineTextAlignment(.center)
@@ -102,7 +102,7 @@ public struct ImageAnalysisView: View {
                             .frame(width: clockRect.width, height: clockRect.height)
                             .position(x: clockRect.midX, y: clockRect.midY)
                             .overlay(
-                                Text(analysis.clockSafeRegion.isClockOccluded ? "Clock Overlap (Depth Mode)" : "Clock Safe Zone Clear")
+                                Text(analysis.clockSafeRegion.isClockOccluded ? "Saat Çakışması (Derinlik Modu)" : "Saat Bölgesi Uygun")
                                     .font(.system(size: 9, weight: .heavy))
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 6)
@@ -121,16 +121,16 @@ public struct ImageAnalysisView: View {
     private func metricsSummaryCard(_ analysis: ImageAnalysisResult) -> some View {
         HStack(spacing: 12) {
             metricItem(
-                title: "Subject",
+                title: "Konu",
                 value: analysis.subjectType,
-                subvalue: "\(Int(analysis.subjectConfidence * 100))% match",
+                subvalue: "%\(Int(analysis.subjectConfidence * 100)) eşleşme",
                 icon: "person.crop.circle.badge.checkmark"
             )
             
             metricItem(
-                title: "Depth Effect",
-                value: analysis.depthEffectScore > 0.7 ? "Eligible" : "Standard",
-                subvalue: "\(Int(analysis.depthEffectScore * 100))% score",
+                title: "Derinlik Efekti",
+                value: analysis.depthEffectScore > 0.7 ? "Uygun" : "Standart",
+                subvalue: "%\(Int(analysis.depthEffectScore * 100)) puan",
                 icon: "square.2.layers.3d"
             )
         }
@@ -162,7 +162,7 @@ public struct ImageAnalysisView: View {
             HStack {
                 Image(systemName: "clock.badge.checkmark.fill")
                     .foregroundColor(analysis.clockSafeRegion.isClockOccluded ? .orange : .green)
-                Text("Lock Screen Clock Composition")
+                Text("Kilit Ekranı Saat Kompozisyonu")
                     .font(.subheadline.weight(.bold))
                     .foregroundColor(.white)
             }
@@ -188,7 +188,7 @@ public struct ImageAnalysisView: View {
     
     private func colorPaletteCard(_ analysis: ImageAnalysisResult) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Dominant Tones Extracted")
+            Text("Baskın Renkler")
                 .font(.caption.weight(.bold))
                 .foregroundColor(.white.opacity(0.7))
             
@@ -217,7 +217,7 @@ public struct ImageAnalysisView: View {
             navigateToStyle = true
         }) {
             HStack(spacing: 8) {
-                Text("Choose Style & Synthesize")
+                Text("Stil Seç ve Oluştur")
                     .font(.headline.weight(.bold))
                 Image(systemName: "arrow.right")
             }

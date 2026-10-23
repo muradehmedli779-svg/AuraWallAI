@@ -6,23 +6,23 @@ public struct OnboardingView: View {
     
     private let slides = [
         OnboardingSlide(
-            badge: "NEXT-GEN AI",
-            title: "Wallpapers Engineered for iPhone",
-            description: "Say goodbye to stretched, messy backgrounds. AuraWall creates bespoke 4K wallpapers tailored to your exact Super Retina display.",
+            badge: "YENİ NESİL YAPAY ZEKA",
+            title: "iPhone İçin Özel Kilit Ekranları",
+            description: "Bozuk veya basık duvar kağıtlarına son. AuraWall, iPhone'unuzun ekran çözünürlüğüne birebir uyumlu 4K ultra net duvar kağıtları üretir.",
             systemIcon: "iphone.gen3",
             gradient: ["#9353FE", "#00F5FF"]
         ),
         OnboardingSlide(
-            badge: "INTELLIGENT VISION",
-            title: "Clock-Safe Depth Matting",
-            description: "Our Apple Neural Engine vision model identifies subjects and analyzes clock occlusion to ensure flawless depth effect layering behind the iOS time.",
+            badge: "AKILLI GÖRÜŞ MOTORU",
+            title: "Saat Arkası Derinlik Efekti",
+            description: "Apple Vision motoru ile resimdeki özne tespit edilir ve saatle çakışmayacak, saatin önüne geçebilecek gerçek derinlik katmanı oluşturulur.",
             systemIcon: "clock.badge.checkmark.fill",
             gradient: ["#FF2A85", "#9353FE"]
         ),
         OnboardingSlide(
-            badge: "STUDIO QUALITY",
-            title: "OLED Pure Blacks & 4K Detail",
-            description: "Curated cinematic, cyberpunk, and liquid glass styles tuned for maximum battery efficiency and eye-catching dynamic range.",
+            badge: "STÜDYO KALİTESİ",
+            title: "Saf OLED Siyahları ve Canlı Renkler",
+            description: "Siber neon, minimalist OLED ve sinematik stillerle ekranınızın pil ömrünü korurken büyüleyici bir görünüm kazanın.",
             systemIcon: "sparkles",
             gradient: ["#00F5FF", "#3B82F6"]
         )
@@ -45,7 +45,7 @@ public struct OnboardingView: View {
                 // Top Skip
                 HStack {
                     Spacer()
-                    Button("Skip") {
+                    Button("Geç") {
                         complete()
                     }
                     .font(.subheadline.weight(.semibold))
@@ -73,7 +73,7 @@ public struct OnboardingView: View {
                             complete()
                         }
                     }) {
-                        Text(currentStep == slides.count - 1 ? "Get Started" : "Continue")
+                        Text(currentStep == slides.count - 1 ? "Hemen Başla" : "Devam Et")
                             .font(.headline.weight(.bold))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)

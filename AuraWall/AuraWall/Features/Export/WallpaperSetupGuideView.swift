@@ -6,32 +6,32 @@ public struct WallpaperSetupGuideView: View {
     private let steps = [
         GuideStep(
             number: "1",
-            title: "Long-Press Lock Screen",
-            description: "Wake your iPhone and long-press anywhere on your current Lock Screen until the wallpaper gallery selector appears.",
+            title: "Kilit Ekranına Uzun Bas",
+            description: "iPhone'unu uyandır ve mevcut kilit ekranına, duvar kağıdı galeri seçici görünene kadar uzun bas.",
             icon: "hand.tap.fill"
         ),
         GuideStep(
             number: "2",
-            title: "Tap the Blue Plus (+) Button",
-            description: "Tap the '+' button in the bottom-right corner to create a new wallpaper configuration.",
+            title: "Mavi Artı (+) Butonuna Dokun",
+            description: "Yeni duvar kağıdı oluşturmak için sağ alt köşedeki '+' butonuna dokun.",
             icon: "plus.circle.fill"
         ),
         GuideStep(
             number: "3",
-            title: "Select 'Photos' & Choose AuraWall",
-            description: "Tap the 'Photos' button at the top and select the 4K wallpaper you just exported from AuraWall.",
+            title: "'Fotoğraflar'ı Seç ve AuraWall'u Bul",
+            description: "Üstteki 'Fotoğraflar' butonuna dokun ve AuraWall'dan az önce dışa aktardığın 4K duvar kağıdını seç.",
             icon: "photo.on.rectangle"
         ),
         GuideStep(
             number: "4",
-            title: "Depth Effect Automatic Activation",
-            description: "Because AuraWall engineered the composition and safe zones, iOS will automatically detect the subject and place the time behind it.",
+            title: "Derinlik Efekti Otomatik Etkinleşir",
+            description: "AuraWall kompozisyonu ve güvenli bölgeleri özel olarak tasarladığından, iOS konuyu otomatik algılar ve saati arka plana gönderir.",
             icon: "square.2.layers.3d.top.filled"
         ),
         GuideStep(
             number: "5",
-            title: "Set as Wallpaper Pair",
-            description: "Tap 'Add' in the top-right corner, then choose 'Set as Wallpaper Pair' or customize your Home Screen blur.",
+            title: "Duvar Kağıdı Çifti Olarak Ayarla",
+            description: "Sağ üst köşedeki 'Ekle' butonuna dokun, ardından 'Duvar Kağıdı Çifti Olarak Ayarla'yı seç veya Ana Ekran bulanıklığını özelleştir.",
             icon: "checkmark.circle.fill"
         )
     ]
@@ -55,11 +55,11 @@ public struct WallpaperSetupGuideView: View {
                     .padding(.vertical, 16)
                 }
             }
-            .navigationTitle("iOS Setup Instructions")
+            .navigationTitle("iOS Kurulum Talimatları")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Close") {
+                    Button("Kapat") {
                         dismiss()
                     }
                     .foregroundColor(.white)
@@ -70,10 +70,10 @@ public struct WallpaperSetupGuideView: View {
     
     private var headerSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Setting Your AI Wallpaper")
+            Text("Yapay Zeka Duvar Kağıdını Ayarla")
                 .font(.title3.weight(.bold))
                 .foregroundColor(.white)
-            Text("Follow these official Apple iOS steps to activate the native Depth Effect.")
+            Text("Yerleşik Derinlik Efektini etkinleştirmek için Apple'ın resmi iOS adımlarını izle.")
                 .font(.caption)
                 .foregroundColor(.white.opacity(0.6))
         }
@@ -116,12 +116,12 @@ public struct WallpaperSetupGuideView: View {
             HStack(spacing: 6) {
                 Image(systemName: "lightbulb.fill")
                     .foregroundColor(.yellow)
-                Text("Pro Depth Effect Tip")
+                Text("Derinlik Efekti İpucu")
                     .font(.caption.weight(.bold))
                     .foregroundColor(.white)
             }
             
-            Text("If iOS disables Depth Effect on the preview screen, tap the three dots (...) in the lower right of Apple's wallpaper editor and ensure 'Depth Effect' is checked. AuraWall keeps subject overlap under 25% to guarantee iOS compatibility.")
+            Text("iOS önizleme ekranında Derinlik Efekti devre dışı kalırsa, Apple'ın duvar kağıdı düzenleyicisinin sağ alt köşesindeki üç noktaya (...) dokun ve 'Derinlik Efekti'nin işaretli olduğundan emin ol. AuraWall, iOS uyumluluğunu garantilemek için konu örtüşmesini %25'in altında tutar.")
                 .font(.caption2)
                 .foregroundColor(.white.opacity(0.7))
                 .lineSpacing(3)

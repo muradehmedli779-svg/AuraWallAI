@@ -17,7 +17,7 @@ public struct WallpaperEditorView: View {
                 Color.auraDarkBg.ignoresSafeArea()
                 
                 VStack(spacing: 16) {
-                    // Lock Screen Live Interactive Canvas
+                    // Kilit Ekranı Canlı İnteraktif Tuval
                     ZStack {
                         if let img = activeImage {
                             LockScreenPreviewView(
@@ -41,7 +41,7 @@ public struct WallpaperEditorView: View {
                     }
                     .padding(.top, 4)
                     
-                    // Variations Selector
+                    // Varyasyon Seçici
                     VariationsGridView(
                         project: $project,
                         onSelectVariation: { variation in
@@ -53,23 +53,23 @@ public struct WallpaperEditorView: View {
                     )
                     .padding(.horizontal, 20)
                     
-                    // Quick Adjustment Controls
+                    // Hızlı Ayar Kontrolleri
                     controlsBar
                         .padding(.horizontal, 20)
                     
                     Spacer()
                     
-                    // Export CTA
+                    // Dışa Aktarma Butonu
                     exportButton
                         .padding(.horizontal, 20)
                         .padding(.bottom, 10)
                 }
             }
-            .navigationTitle("Lock Screen Editor")
+            .navigationTitle("Kilit Ekranı Düzenleyici")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Done") {
+                    Button("Tamam") {
                         storageManager.saveProject(project)
                         dismiss()
                     }
@@ -89,7 +89,7 @@ public struct WallpaperEditorView: View {
     
     private var controlsBar: some View {
         HStack(spacing: 16) {
-            // Depth effect toggle
+            // Derinlik efekti aç/kapat
             Button(action: {
                 HapticManager.shared.light()
                 project.enableDepthEffect.toggle()
@@ -97,7 +97,7 @@ public struct WallpaperEditorView: View {
                 HStack(spacing: 6) {
                     Image(systemName: project.enableDepthEffect ? "square.2.layers.3d.top.filled" : "square.2.layers.3d")
                         .foregroundColor(project.enableDepthEffect ? Color.auraCyan : .white.opacity(0.4))
-                    Text("Depth")
+                    Text("Derinlik")
                         .font(.caption.weight(.bold))
                         .foregroundColor(project.enableDepthEffect ? .white : .white.opacity(0.5))
                 }
@@ -106,17 +106,17 @@ public struct WallpaperEditorView: View {
                 .glassCard(cornerRadius: 12)
             }
             
-            // Dimming slider
+            // Karartma seçici
             Menu {
-                Button("No Dimming (100% Bright)") { project.overlayDimming = 0.0 }
-                Button("Subtle Dim (15%)") { project.overlayDimming = 0.15 }
-                Button("Medium Dim (30%)") { project.overlayDimming = 0.30 }
-                Button("OLED Deep Dim (50%)") { project.overlayDimming = 0.50 }
+                Button("Karartma Yok (%100 Parlak)") { project.overlayDimming = 0.0 }
+                Button("Hafif Karartma (%15)") { project.overlayDimming = 0.15 }
+                Button("Orta Karartma (%30)") { project.overlayDimming = 0.30 }
+                Button("OLED Derin Karartma (%50)") { project.overlayDimming = 0.50 }
             } label: {
                 HStack(spacing: 6) {
                     Image(systemName: "sun.min.fill")
                         .foregroundColor(Color.auraCyan)
-                    Text("Dimming")
+                    Text("Karartma")
                         .font(.caption.weight(.bold))
                         .foregroundColor(.white)
                 }
@@ -125,7 +125,7 @@ public struct WallpaperEditorView: View {
                 .glassCard(cornerRadius: 12)
             }
             
-            // Clock Font
+            // Saat Fontu
             Menu {
                 ForEach(LockScreenPreviewView.ClockFontStyle.allCases) { font in
                     Button(font.rawValue) {
@@ -154,7 +154,7 @@ public struct WallpaperEditorView: View {
         }) {
             HStack(spacing: 8) {
                 Image(systemName: "arrow.down.circle.fill")
-                Text("Export 4K Wallpaper")
+                Text("4K Duvar Kağıdını Dışa Aktar")
                     .font(.headline.weight(.bold))
             }
             .foregroundColor(.white)
@@ -211,7 +211,7 @@ public struct WallpaperEditorView: View {
             storageManager.saveProject(project)
             HapticManager.shared.success()
         } catch {
-            print("Regenerate failed: \(error)")
+            print("Yeniden oluşturma başarısız: \(error)")
         }
     }
 }

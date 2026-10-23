@@ -9,7 +9,7 @@ public struct GenerationProgressView: View {
     let variationCount: Int
     
     @EnvironmentObject var storageManager: StorageManager
-    @State private var currentStepText = "Preparing neural composition..."
+    @State private var currentStepText = "Sinir ağı kompozisyonu hazırlanıyor..."
     @State private var progressFraction: Double = 0.15
     @State private var completedProject: WallpaperProject?
     @State private var navigateToEditor = false
@@ -45,14 +45,14 @@ public struct GenerationProgressView: View {
                         Image(systemName: "sparkles")
                             .font(.system(size: 32))
                             .foregroundColor(Color.auraCyan)
-                        Text("\(Int(progressFraction * 100))%")
+                        Text("%\(Int(progressFraction * 100))")
                             .font(.caption.weight(.bold))
                             .foregroundColor(.white)
                     }
                 }
                 
                 VStack(spacing: 12) {
-                    Text("Synthesizing Wallpapers")
+                    Text("Duvar Kağıtları Oluşturuluyor")
                         .font(.title2.weight(.bold))
                         .foregroundColor(.white)
                     
@@ -61,7 +61,7 @@ public struct GenerationProgressView: View {
                         .foregroundColor(Color.auraCyan)
                         .multilineTextAlignment(.center)
                     
-                    Text("Target: \(device.name) (\(device.pixelWidth)×\(device.pixelHeight))")
+                    Text("Hedef: \(device.name) (\(device.pixelWidth)×\(device.pixelHeight))")
                         .font(.caption)
                         .foregroundColor(.white.opacity(0.5))
                 }
@@ -73,7 +73,7 @@ public struct GenerationProgressView: View {
                         Text(error)
                             .font(.caption)
                             .foregroundColor(.red)
-                        Button("Retry") {
+                        Button("Tekrar Dene") {
                             Task { await runPipeline() }
                         }
                         .font(.subheadline.weight(.bold))
@@ -97,17 +97,17 @@ public struct GenerationProgressView: View {
     private func runPipeline() async {
         errorMessage = nil
         
-        // Step 1: Prompt & subject anchoring
+        // Adım 1: Konu sabitleme ve istem hazırlama
         withAnimation {
             progressFraction = 0.25
-            currentStepText = "Encoding subject identity & clock-safe constraints..."
+            currentStepText = "Konu kimliği ve saat uyumluluk kısıtları kodlanıyor..."
         }
         try? await Task.sleep(nanoseconds: 600_000_000)
         
-        // Step 2: Generation Provider execution
+        // Adım 2: Yapay Zeka Üretim Motoru
         withAnimation {
             progressFraction = 0.55
-            currentStepText = "Diffusing 4K OLED layers with \(style.name)..."
+            currentStepText = "\(style.name) stiliyle 4K OLED katmanları işleniyor..."
         }
         
         do {
@@ -120,18 +120,18 @@ public struct GenerationProgressView: View {
                 variationCount: variationCount
             )
             
-            // Step 3: Depth extraction & validation
+            // Adım 3: Derinlik katmanı çıkarma
             withAnimation {
                 progressFraction = 0.85
-                currentStepText = "Extracting lock screen depth layers..."
+                currentStepText = "Kilit ekranı derinlik katmanları çıkarılıyor..."
             }
             try? await Task.sleep(nanoseconds: 500_000_000)
             
-            // Save source image to disk
+            // Kaynak görseli diske kaydet
             let originalFilename = try? StorageManager.shared.saveImage(sourceImage, prefix: "source")
             
             var project = WallpaperProject(
-                title: "\(style.name) Wallpaper",
+                title: "\(style.name) Duvar Kağıdı",
                 originalImageFilename: originalFilename,
                 analysisResult: analysis,
                 selectedStyleId: style.id,
@@ -143,7 +143,7 @@ public struct GenerationProgressView: View {
             
             withAnimation {
                 progressFraction = 1.0
-                currentStepText = "Wallpapers ready!"
+                currentStepText = "Duvar kağıtları hazır!"
             }
             try? await Task.sleep(nanoseconds: 300_000_000)
             
@@ -152,7 +152,7 @@ public struct GenerationProgressView: View {
             self.navigateToEditor = true
             HapticManager.shared.success()
         } catch {
-            self.errorMessage = "Generation failed: \(error.localizedDescription)"
+            self.errorMessage = "Oluşturma başarısız: \(error.localizedDescription)"
             HapticManager.shared.error()
         }
     }

@@ -31,14 +31,14 @@ public struct ExportView: View {
                             )
                             .shadow(color: Color.black.opacity(0.5), radius: 20)
                         
-                        // Resolution specs
+                        // Çözünürlük bilgileri
                         HStack(spacing: 20) {
-                            specPill(icon: "sparkles", text: "4K Ultra-Res")
+                            specPill(icon: "sparkles", text: "4K Ultra Çözünürlük")
                             specPill(icon: "aspectratio", text: "\(Int(rendered.size.width)) × \(Int(rendered.size.height))")
-                            specPill(icon: "checkmark.shield.fill", text: "Lossless PNG")
+                            specPill(icon: "checkmark.shield.fill", text: "Kayıpsız PNG")
                         }
                     } else {
-                        ProgressView("Composing 4K Canvas...")
+                        ProgressView("4K Tuval Hazırlanıyor...")
                             .frame(height: 420)
                     }
                     
@@ -49,11 +49,11 @@ public struct ExportView: View {
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
             }
-            .navigationTitle("Export Wallpaper")
+            .navigationTitle("Duvar Kağıdını Dışa Aktar")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button("Kapat") {
                         dismiss()
                     }
                     .foregroundColor(.white)
@@ -83,7 +83,7 @@ public struct ExportView: View {
                         ProgressView().tint(.white)
                     } else {
                         Image(systemName: saveSuccess ? "checkmark.circle.fill" : "square.and.arrow.down.fill")
-                        Text(saveSuccess ? "Saved to Photos!" : "Save to Photos Library")
+                        Text(saveSuccess ? "Fotoğraflara Kaydedildi!" : "Fotoğraf Kütüphanesine Kaydet")
                     }
                 }
                 .font(.headline.weight(.bold))
@@ -104,7 +104,7 @@ public struct ExportView: View {
                 Button(action: {
                     showingShareSheet = true
                 }) {
-                    Label("AirDrop / Share", systemImage: "square.and.arrow.up")
+                    Label("AirDrop / Paylaş", systemImage: "square.and.arrow.up")
                         .font(.subheadline.weight(.semibold))
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -115,7 +115,7 @@ public struct ExportView: View {
                 Button(action: {
                     showingGuide = true
                 }) {
-                    Label("iOS Setup Guide", systemImage: "questionmark.circle")
+                    Label("iOS Kurulum Kılavuzu", systemImage: "questionmark.circle")
                         .font(.subheadline.weight(.semibold))
                         .foregroundColor(Color.auraCyan)
                         .frame(maxWidth: .infinity)
@@ -167,7 +167,7 @@ public struct ExportView: View {
                     HapticManager.shared.success()
                 case .denied, .restricted:
                     isSaving = false
-                    saveErrorMessage = "Photo Library access was denied. Enable in Settings -> AuraWall."
+                    saveErrorMessage = "Fotoğraf Kütüphanesi erişimi reddedildi. Ayarlar → AuraWall'dan etkinleştirin."
                     HapticManager.shared.error()
                 case .notDetermined:
                     isSaving = false

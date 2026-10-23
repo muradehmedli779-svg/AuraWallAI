@@ -28,7 +28,7 @@ public struct StyleSelectionView: View {
                 .padding(.vertical, 16)
             }
         }
-        .navigationTitle("Aesthetic & Device")
+        .navigationTitle("Stil ve Cihaz")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $navigateToProgress) {
             GenerationProgressView(
@@ -47,10 +47,10 @@ public struct StyleSelectionView: View {
     
     private var headerSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Select Lock Screen Aesthetic")
+            Text("Kilit Ekranı Stili Seç")
                 .font(.headline.weight(.bold))
                 .foregroundColor(.white)
-            Text("Tuned for OLED contrast and high dynamic range displays.")
+            Text("OLED kontrast ve yüksek dinamik aralık ekranlar için optimize edildi.")
                 .font(.caption)
                 .foregroundColor(.white.opacity(0.6))
         }
@@ -58,19 +58,27 @@ public struct StyleSelectionView: View {
     
     private var deviceSelector: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Target iPhone Resolution")
+            Text("Hedef iPhone Çözünürlüğü")
                 .font(.caption.weight(.bold))
                 .foregroundColor(.white.opacity(0.7))
             
             Menu {
-                ForEach(DeviceProfile.allDevices) { device in
-                    Button(action: {
-                        targetDevice = device
-                    }) {
-                        HStack {
-                            Text(device.name)
-                            if device.id == targetDevice.id {
-                                Image(systemName: "checkmark")
+                let grouped = Dictionary(grouping: DeviceProfile.allDevices, by: { $0.series })
+                let seriesOrder = ["iPhone 18 Serisi", "iPhone 17 Serisi", "iPhone 16 Serisi", "iPhone 15 Serisi", "iPhone 14 Serisi", "iPhone 13 Serisi", "iPhone 12 Serisi", "iPhone 11 Serisi"]
+                ForEach(seriesOrder, id: \.self) { series in
+                    if let devices = grouped[series] {
+                        Section(header: Text(series)) {
+                            ForEach(devices) { device in
+                                Button(action: {
+                                    targetDevice = device
+                                }) {
+                                    HStack {
+                                        Text(device.name)
+                                        if device.id == targetDevice.id {
+                                            Image(systemName: "checkmark")
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -98,7 +106,7 @@ public struct StyleSelectionView: View {
     
     private var stylesGrid: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Curated Visual Styles")
+            Text("Görsel Stiller")
                 .font(.caption.weight(.bold))
                 .foregroundColor(.white.opacity(0.7))
             
@@ -108,40 +116,23 @@ public struct StyleSelectionView: View {
                     
                     Button(action: {
                         HapticManager.shared.light()
-                        if style.isPro && !storeKitManager.isProUser {
-                            showingPaywall = true
-                        } else {
-                            selectedStyle = style
-                        }
+                        selectedStyle = style
                     }) {
                         VStack(alignment: .leading, spacing: 10) {
-                            ZStack(alignment: .topTrailing) {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .fill(
-                                        LinearGradient(
-                                            colors: style.sampleGradientColors.compactMap { Color(hex: $0) },
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(
+                                    LinearGradient(
+                                        colors: style.sampleGradientColors.compactMap { Color(hex: $0) },
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
                                     )
-                                    .frame(height: 110)
-                                    .overlay(
-                                        Image(systemName: style.iconSystemName)
-                                            .font(.system(size: 32))
-                                            .foregroundColor(.white.opacity(0.85))
-                                    )
-                                
-                                if style.isPro {
-                                    Text("PRO")
-                                        .font(.system(size: 9, weight: .heavy))
-                                        .foregroundColor(.black)
-                                        .padding(.horizontal, 6)
-                                        .padding(.vertical, 3)
-                                        .background(Color(hex: "#FFD700")!)
-                                        .cornerRadius(6)
-                                        .padding(8)
-                                }
-                            }
+                                )
+                                .frame(height: 110)
+                                .overlay(
+                                    Image(systemName: style.iconSystemName)
+                                        .font(.system(size: 32))
+                                        .foregroundColor(.white.opacity(0.85))
+                                )
                             
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(style.name)
@@ -170,14 +161,14 @@ public struct StyleSelectionView: View {
     
     private var promptCustomizer: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Custom Details & Elements (Optional)")
+            Text("Özel Detaylar ve Öğeler (İsteğe Bağlı)")
                 .font(.caption.weight(.bold))
                 .foregroundColor(.white.opacity(0.7))
             
             HStack {
                 Image(systemName: "pencil.and.outline")
                     .foregroundColor(Color.auraCyan)
-                TextField("e.g. misty rainy night, iridescent smoke, gold particles...", text: $customPrompt)
+                TextField("örn. sisli yağmurlu gece, altın parçacıklar, gökkuşağı renkleri...", text: $customPrompt)
                     .font(.subheadline)
                     .foregroundColor(.white)
             }
@@ -193,7 +184,7 @@ public struct StyleSelectionView: View {
         }) {
             HStack(spacing: 8) {
                 Image(systemName: "sparkles")
-                Text("Synthesize \(variationCount) Variations")
+                Text("\(variationCount) Varyasyon Oluştur")
                     .font(.headline.weight(.bold))
             }
             .foregroundColor(.white)

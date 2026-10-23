@@ -58,40 +58,15 @@ public struct HomeGalleryView: View {
                             endPoint: .trailing
                         )
                     )
-                Text("Lock Screen Architecture")
+                Text("Yapay Zeka Kilit Ekranı Tasarımcısı")
                     .font(.caption.weight(.bold))
-                    .tracking(1.5)
+                    .tracking(1.0)
                     .foregroundColor(Color.auraCyan)
             }
             
             Spacer()
             
             HStack(spacing: 12) {
-                if !storeKitManager.isProUser {
-                    Button(action: {
-                        HapticManager.shared.light()
-                        showingPaywall = true
-                    }) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "crown.fill")
-                                .font(.caption.weight(.bold))
-                            Text("PRO")
-                                .font(.caption.weight(.heavy))
-                        }
-                        .foregroundColor(.black)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 6)
-                        .background(
-                            LinearGradient(
-                                colors: [Color(hex: "#FFD700")!, Color(hex: "#FFA500")!],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .cornerRadius(12)
-                    }
-                }
-                
                 Button(action: {
                     HapticManager.shared.light()
                     showingSettings = true
@@ -140,18 +115,18 @@ public struct HomeGalleryView: View {
                             Circle()
                                 .fill(Color.auraCyan)
                                 .frame(width: 8, height: 8)
-                            Text("AI LOCK SCREEN ENGINE")
+                            Text("YAPAY ZEKA MOTORU")
                                 .font(.caption2.weight(.heavy))
                                 .tracking(1.5)
                                 .foregroundColor(Color.auraCyan)
                         }
                         
-                        Text("Synthesize New\nWallpaper")
+                        Text("Yeni Duvar Kağıdı\nOluştur")
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.leading)
                         
-                        Text("Subject-aware • Clock-safe • 4K")
+                        Text("Gerçek AI • Saat Uyumlu • 4K Ultra")
                             .font(.caption)
                             .foregroundColor(.white.opacity(0.7))
                     }
@@ -176,7 +151,7 @@ public struct HomeGalleryView: View {
     
     private var stylesInspirationSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Featured Aesthetics")
+            Text("Öne Çıkan Stiller")
                 .font(.headline.weight(.bold))
                 .foregroundColor(.white)
             
@@ -203,17 +178,6 @@ public struct HomeGalleryView: View {
                                             Spacer()
                                         }
                                     )
-                                
-                                if style.isPro {
-                                    Text("PRO")
-                                        .font(.system(size: 9, weight: .heavy))
-                                        .foregroundColor(.black)
-                                        .padding(.horizontal, 6)
-                                        .padding(.vertical, 3)
-                                        .background(Color(hex: "#FFD700")!)
-                                        .cornerRadius(6)
-                                        .padding(8)
-                                }
                             }
                             
                             Text(style.name)
@@ -235,13 +199,13 @@ public struct HomeGalleryView: View {
     private var recentCreationsSection: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                Text("Your Library")
+                Text("Kütüphanen")
                     .font(.headline.weight(.bold))
                     .foregroundColor(.white)
                 
                 Spacer()
                 
-                Text("\(storageManager.savedProjects.count) Wallpapers")
+                Text("\(storageManager.savedProjects.count) Duvar Kağıdı")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.6))
             }
@@ -252,10 +216,10 @@ public struct HomeGalleryView: View {
                         .font(.system(size: 40))
                         .foregroundColor(.white.opacity(0.3))
                         .padding(.top, 20)
-                    Text("No wallpapers generated yet")
+                    Text("Henüz duvar kağıdı oluşturulmadı")
                         .font(.subheadline.weight(.semibold))
                         .foregroundColor(.white.opacity(0.6))
-                    Text("Import any photo to generate personalized lock screens.")
+                    Text("Bir fotoğraf yükleyerek yapay zeka ile kilit ekranı tasarlamaya başlayın.")
                         .font(.caption)
                         .foregroundColor(.white.opacity(0.4))
                         .multilineTextAlignment(.center)

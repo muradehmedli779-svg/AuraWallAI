@@ -8,10 +8,10 @@ public struct LockScreenPreviewView: View {
     let clockFontName: ClockFontStyle
     
     public enum ClockFontStyle: String, CaseIterable, Identifiable {
-        case standard = "Standard"
-        case rounded = "Rounded"
+        case standard = "Standart"
+        case rounded = "Yuvarlak"
         case serif = "Serif"
-        case stencil = "Stencil"
+        case stencil = "Şablon"
         
         public var id: String { rawValue }
     }
@@ -24,34 +24,35 @@ public struct LockScreenPreviewView: View {
     
     private var currentDateString: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMMM d"
+        formatter.locale = Locale(identifier: "tr_TR")
+        formatter.dateFormat = "EEEE, d MMMM"
         return formatter.string(from: Date()).uppercased()
     }
     
     public var body: some View {
         GeometryReader { geo in
             ZStack {
-                // 1. Base Wallpaper
+                // 1. Arka Plan Duvar Kağıdı
                 Image(uiImage: baseImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geo.size.width, height: geo.size.height)
                     .clipped()
                 
-                // 2. Dimming overlay for readability
+                // 2. Okunabilirlik için karartma katmanı
                 if overlayDimming > 0.05 {
                     Color.black.opacity(overlayDimming)
                 }
                 
-                // 3. Lock Screen UI Layer (Clock & Widgets)
+                // 3. Kilit Ekranı Arayüz Katmanı (Saat ve Widget'lar)
                 VStack(spacing: 0) {
-                    // Top Status Bar & Dynamic Island
+                    // Üst Durum Çubuğu ve Dynamic Island
                     HStack {
                         Text("9:41")
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(.white)
                         Spacer()
-                        // Dynamic Island capsule
+                        // Dynamic Island kapsülü
                         Capsule()
                             .fill(Color.black)
                             .frame(width: 110, height: 28)
@@ -67,14 +68,14 @@ public struct LockScreenPreviewView: View {
                     .padding(.horizontal, 24)
                     .padding(.top, 14)
                     
-                    // Date
+                    // Tarih
                     Text(currentDateString)
                         .font(.system(size: 13, weight: .semibold))
                         .tracking(1.2)
                         .foregroundColor(.white.opacity(0.85))
                         .padding(.top, 24)
                     
-                    // Massive Clock
+                    // Büyük Saat
                     Text(currentTimeString)
                         .font(clockFont)
                         .foregroundColor(.white.opacity(0.95))
@@ -82,17 +83,17 @@ public struct LockScreenPreviewView: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.8)
                     
-                    // Lock Screen Widgets Row
+                    // Kilit Ekranı Widget Satırı
                     HStack(spacing: 16) {
-                        widgetCard(icon: "heart.fill", label: "72 BPM", color: .red)
-                        widgetCard(icon: "bolt.fill", label: "94%", color: .green)
-                        widgetCard(icon: "sun.max.fill", label: "78°", color: .yellow)
+                        widgetCard(icon: "heart.fill", label: "72 NBD", color: .red)
+                        widgetCard(icon: "bolt.fill", label: "%94", color: .green)
+                        widgetCard(icon: "sun.max.fill", label: "26°C", color: .yellow)
                     }
                     .padding(.top, 4)
                     
                     Spacer()
                     
-                    // Bottom Quick Action Buttons
+                    // Alt Hızlı Eylem Butonları
                     HStack {
                         quickActionButton(icon: "flashlight.off.fill")
                         Spacer()
@@ -101,15 +102,15 @@ public struct LockScreenPreviewView: View {
                     .padding(.horizontal, 32)
                     .padding(.bottom, 16)
                     
-                    // Home Indicator
+                    // Ana Sayfa Göstergesi
                     Capsule()
                         .fill(Color.white)
                         .frame(width: 134, height: 5)
                         .padding(.bottom, 8)
                 }
                 
-                // 4. Foreground Subject Cutout (Depth Effect)
-                // When enabled, the subject's head/contour layers OVER the clock!
+                // 4. Ön Plan Konu Kesimi (Derinlik Efekti)
+                // Etkinleştirildiğinde konunun başı/konturu saatin ÜSTÜNE gelir!
                 if enableDepthEffect, let cutout = subjectCutout {
                     Image(uiImage: cutout)
                         .resizable()
